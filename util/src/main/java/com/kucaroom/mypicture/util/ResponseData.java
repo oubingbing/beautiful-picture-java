@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.util;import lombok.Data;/** * 数据返回 * @param <T> */@Datapublic class ResponseData<T> {    private Integer code;    private String message;    private T data;}

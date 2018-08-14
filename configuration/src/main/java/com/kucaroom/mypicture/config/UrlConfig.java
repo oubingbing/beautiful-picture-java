@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.config;import lombok.Data;import org.springframework.boot.context.properties.ConfigurationProperties;import org.springframework.stereotype.Component;@Data@Component@ConfigurationProperties(prefix = "url")public class UrlConfig {    /** 微信登录地址 */    private String weChatUrl;}

@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.config;import lombok.Data;import org.springframework.boot.context.properties.ConfigurationProperties;import org.springframework.stereotype.Component;@Data@Component@ConfigurationProperties(prefix = "jwt")public class JwtConfig {    /** 加密解密的密钥 */    private String secretKey;}

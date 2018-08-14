@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.enums;import lombok.Getter;/** * 小程序状态 */@Getterpublic enum WeChatAppStatusEnum {    AUDIT(1,"审核中"),    WORKING(2,"运行中"),    CLOSE(3,"关闭"),    ;    private Integer code;    private String message;    WeChatAppStatusEnum(Integer code, String message){        this.code = code;        this.message = message;    }}

@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.repository;import com.kucaroom.mypicture.domain.User;import org.springframework.data.jpa.repository.JpaRepository;import java.util.List;public interface UserRepository extends JpaRepository<User,Integer> {    /** 根据微信ID获取用户 */    User findByOpenId(String openId);    /** 根据APP ID获取用 */    List<User> findByAppId(Integer appId);}
