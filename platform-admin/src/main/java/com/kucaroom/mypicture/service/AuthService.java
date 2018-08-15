@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.service;public interface AuthService {    Boolean login(String email,String password);    void logout();    Boolean isAuthenticated();    String loginUser();}

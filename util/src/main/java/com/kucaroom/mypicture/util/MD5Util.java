@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.util;import org.apache.shiro.crypto.hash.Md5Hash;/** * md5加密 */public class MD5Util {    //散列2次    public static int hashIterations = 2;    public static String encrypt(String password,String salt){        Md5Hash encryptPassword = new Md5Hash(password,salt,MD5Util.hashIterations);        return encryptPassword.toString();    }}

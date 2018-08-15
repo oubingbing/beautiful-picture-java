@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.enums;import lombok.Getter;@Getterpublic enum AdminStatusEnum {    ADMIN_NOT_ACTIVE(0,"未激活"),    ADMIN_ACTIVE(1,"已激活")    ;    private Integer code;    private String message;    AdminStatusEnum(Integer code,String message){        this.code = code;        this.message = message;    }}
