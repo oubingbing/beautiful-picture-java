@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.form;import lombok.Data;import javax.validation.constraints.Email;import javax.validation.constraints.NotEmpty;@Datapublic class LoginForm {    //邮箱或密码错误！    @Email(message = "邮箱格式错误！")    @NotEmpty(message = "邮箱不能为空！")    private String email;    @NotEmpty(message = "密码不能为空！")    private String password;}
