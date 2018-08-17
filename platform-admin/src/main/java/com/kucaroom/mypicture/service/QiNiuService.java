@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.service;import com.kucaroom.mypicture.DTO.QiNiuAccountDTO;public interface QiNiuService {    QiNiuAccountDTO create(QiNiuAccountDTO qiNiuAccountDTO);    QiNiuAccountDTO findByAppId(Integer appId);    String getToken(Integer appId);}
