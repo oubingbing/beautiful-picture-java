@@ -13,5 +13,5 @@ public class PictureDTO {
 
     private String coverPicture;
 
-    private List<PictureItem> pictures;
+    private List<PictureItem> pictureItems;
 }

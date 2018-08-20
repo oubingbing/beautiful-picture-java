@@ -20,7 +20,7 @@ public class PictureFormToPictureDTO {
         List<PictureItem> pictureItems = new ArrayList<>();
         pictureItems = gson.fromJson(pictureForm.getPictures(),new TypeToken<List<PictureItem>>(){}.getType());
 
-        pictureDTO.setPictures(pictureItems);
+        pictureDTO.setPictureItems(pictureItems);
 
         return pictureDTO;
     }
