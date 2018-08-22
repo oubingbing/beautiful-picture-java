@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.service;public interface PictureItemService {}

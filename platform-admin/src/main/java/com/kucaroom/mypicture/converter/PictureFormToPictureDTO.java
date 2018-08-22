@@ -14,7 +14,7 @@ public class PictureFormToPictureDTO {
         Gson gson = new Gson();
         PictureDTO pictureDTO = new PictureDTO();
         pictureDTO.setTitle(pictureForm.getTitle());
-        pictureDTO.setCoverPicture(pictureForm.getContent());
+        pictureDTO.setCoverPicture(pictureForm.getCoverPicture());
         pictureDTO.setContent(pictureForm.getContent());
 
         List<PictureItem> pictureItems = new ArrayList<>();
