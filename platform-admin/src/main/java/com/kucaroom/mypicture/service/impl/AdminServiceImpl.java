@@ -51,6 +51,13 @@ public class AdminServiceImpl implements AdminService {
         return adminDTO;
     }
 
+    /**
+     * 通过邮箱查询用户
+     *
+     * @author yezi
+     * @param email
+     * @return
+     */
     @Override
     public AdminDTO findByEmail(String email) {
         Admin admin = adminRepository.findByEmail(email);
@@ -63,6 +70,13 @@ public class AdminServiceImpl implements AdminService {
         return null;
     }
 
+    /**
+     * 获取用户密码
+     *
+     * @author yezi
+     * @param email
+     * @return
+     */
     @Override
     public String getPassword(String email) {
         AdminDTO adminDTO = findByEmail(email);

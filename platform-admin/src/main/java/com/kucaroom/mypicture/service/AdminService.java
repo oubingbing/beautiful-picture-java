@@ -17,5 +17,11 @@ public interface AdminService {
      */
     AdminDTO findByEmail(String email);
 
+    /**
+     * 获取用户密码
+     *
+     * @param email
+     * @return
+     */
     String getPassword(String email);
 }
