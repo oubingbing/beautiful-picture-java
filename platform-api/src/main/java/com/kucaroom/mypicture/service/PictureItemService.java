@@ -1,1 +1,1 @@
-package com.kucaroom.mypicture.service;public interface PictureItemService {}
+package com.kucaroom.mypicture.service;import com.kucaroom.mypicture.domain.PictureItem;public interface PictureItemService {    PictureItem findById(Integer id);}

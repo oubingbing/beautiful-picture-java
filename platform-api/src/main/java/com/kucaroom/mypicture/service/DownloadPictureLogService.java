@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.service;import com.kucaroom.mypicture.domain.DownLoadPictureLog;public interface DownloadPictureLogService {    DownLoadPictureLog create(Integer userId,Integer pictureItemId);}

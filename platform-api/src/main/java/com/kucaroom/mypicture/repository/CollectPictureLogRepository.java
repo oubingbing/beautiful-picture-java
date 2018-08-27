@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.repository;import com.kucaroom.mypicture.domain.CollectPictureLog;import org.springframework.data.jpa.repository.JpaRepository;public interface CollectPictureLogRepository extends JpaRepository<CollectPictureLog,Integer> {}

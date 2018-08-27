@@ -14,5 +14,7 @@ public class CollectPictureLog {
 
     private Integer pictureItemId;
 
+    private Integer userId;
+
     private String createAt;
 }

@@ -10,7 +10,17 @@ import com.kucaroom.mypicture.service.PictureService;
 import com.kucaroom.mypicture.service.UserService;
 import com.kucaroom.mypicture.service.ViewPictureLogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ViewPictureLogServiceImpl implements ViewPictureLogService{
@@ -49,5 +59,31 @@ public class ViewPictureLogServiceImpl implements ViewPictureLogService{
         pictureService.incrementViewNumber(pictureId);
 
         return viewPictureLogRepository.save(log);
+    }
+
+    /**
+     * 查询浏览列表
+     *
+     * @author yezi
+     * @param userId
+     * @param pageable
+     * @return
+     */
+    @Override
+    public Page<ViewPictureLog> list(Integer userId, Pageable pageable) {
+
+        Specification<ViewPictureLog> specification = new Specification<ViewPictureLog>() {
+            @Override
+            public Predicate toPredicate(Root<ViewPictureLog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                List<Predicate> predicateList = new ArrayList<>();
+                predicateList.add(criteriaBuilder.equal(root.get("userId"),userId));
+
+                return criteriaBuilder.and(predicateList.toArray(new Predicate[predicateList.size()]));
+            }
+        };
+
+        Page<ViewPictureLog> pages = viewPictureLogRepository.findAll(specification,pageable);
+
+        return pages;
     }
 }
