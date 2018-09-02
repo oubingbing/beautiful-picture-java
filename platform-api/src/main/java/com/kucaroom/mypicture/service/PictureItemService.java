@@ -1,1 +1,1 @@
-package com.kucaroom.mypicture.service;public interface PictureItemService {}
+package com.kucaroom.mypicture.service;import com.kucaroom.mypicture.domain.PictureItem;import com.kucaroom.mypicture.responseObject.PictureItemRO;import org.springframework.data.domain.Pageable;import java.util.List;public interface PictureItemService {    PictureItem findById(Integer id);    List<PictureItemRO> pictureItems(Integer pictureId, Pageable pageable);}

@@ -10,6 +10,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
@@ -33,7 +36,7 @@ public class ViewPictureLogServiceImplTest {
         PictureDTO pictureDTO1 = pictureService.findById(pictureId);
         Assert.assertNotNull(pictureDTO1);
 
-        ViewPictureLog viewPictureLog = viewPictureLogService.create(userId,pictureId);
+        ViewPictureLog viewPictureLog = viewPictureLogService.create(userId,pictureId,1);
         Assert.assertNotNull(viewPictureLog);
 
         PictureDTO pictureDTO2 = pictureService.findById(pictureId);
@@ -42,4 +45,10 @@ public class ViewPictureLogServiceImplTest {
         Assert.assertEquals((Integer) (pictureDTO1.getViewNum()+1),pictureDTO2.getViewNum());
     }
 
+    @Test
+    public void list() {
+        PageRequest pageRequest = new PageRequest(0,10);
+        Page<ViewPictureLog> list = viewPictureLogService.list(7611,pageRequest);
+        log.info("内容：{}",list.getContent().toString());
+    }
 }

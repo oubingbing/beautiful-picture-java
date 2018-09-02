@@ -6,13 +6,17 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "down_load_picture_log")
+@Table(name = "download_picture_log")
 public class DownLoadPictureLog {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
+    private Integer userId;
+
     private Integer pictureItemId;
+
+    private Integer type;
 
     private String createAt;
 }

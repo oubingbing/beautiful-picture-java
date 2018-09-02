@@ -16,5 +16,7 @@ public class ViewPictureLog {
 
     private Integer pictureId;
 
+    private Integer type;
+
     private String createAt;
 }
