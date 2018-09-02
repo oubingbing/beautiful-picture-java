@@ -1,1 +1,1 @@
-spring:  profiles:    active: devserver:  servlet:    context-path: /api  port: 8080url:  we-chat-url: https://api.weixin.qq.com/sns/jscode2sessionjwt:  secret-key: bingbing925455
+spring:  profiles:    active: dev  jmx:    enabled: falseserver:  port: 8080url:  we-chat-url: https://api.weixin.qq.com/sns/jscode2sessionjwt:  secret-key: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJodWl5aSIsImlzcyI6InN5c3RlbSIsImV4cCI6MTUzNTI2MDg3MX0.nkiy3EhJ-hwmrVptbEZAnYmYDImGbrxcKROdcrlpbZk

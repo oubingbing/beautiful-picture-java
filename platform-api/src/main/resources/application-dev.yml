@@ -1,1 +1,1 @@
-spring:  datasource:    driver-class-name: com.mysql.jdbc.Driver    username: root    password: bingbing    url: jdbc:mysql://127.0.0.1/picture?characterEncoding=utf-8&useSSL=false  jpa:    show-sql: true    hibernate:      ddl-auto: none
+spring:  datasource:    driver-class-name: com.mysql.jdbc.Driver    username: root    password:    url: jdbc:mysql://139.159.243.207/picture?characterEncoding=utf-8&useSSL=false  jpa:    show-sql: true    hibernate:      ddl-auto: none
