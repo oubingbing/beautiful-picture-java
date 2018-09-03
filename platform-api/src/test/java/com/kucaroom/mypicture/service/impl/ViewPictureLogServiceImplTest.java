@@ -48,7 +48,7 @@ public class ViewPictureLogServiceImplTest {
     @Test
     public void list() {
         PageRequest pageRequest = new PageRequest(0,10);
-        Page<ViewPictureLog> list = viewPictureLogService.list(7611,pageRequest);
+        Page<ViewPictureLog> list = viewPictureLogService.list(7611,1,pageRequest);
         log.info("内容：{}",list.getContent().toString());
     }
 }

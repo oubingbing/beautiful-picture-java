@@ -6,5 +6,5 @@ import org.springframework.data.domain.Pageable;
 
 public interface ViewPictureLogService {
     ViewPictureLog create(Integer userId,Integer pictureId,Integer viewType);
-    Page<ViewPictureLog> list(Integer userId, Pageable pageable);
+    Page<ViewPictureLog> list(Integer userId,Integer type, Pageable pageable);
 }

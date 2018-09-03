@@ -75,13 +75,14 @@ public class ViewPictureLogServiceImpl implements ViewPictureLogService{
      * @return
      */
     @Override
-    public Page<ViewPictureLog> list(Integer userId, Pageable pageable) {
+    public Page<ViewPictureLog> list(Integer userId,Integer type, Pageable pageable) {
 
         Specification<ViewPictureLog> specification = new Specification<ViewPictureLog>() {
             @Override
             public Predicate toPredicate(Root<ViewPictureLog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicateList = new ArrayList<>();
                 predicateList.add(criteriaBuilder.equal(root.get("userId"),userId));
+                predicateList.add(criteriaBuilder.equal(root.get("type"),type));
 
                 return criteriaBuilder.and(predicateList.toArray(new Predicate[predicateList.size()]));
             }

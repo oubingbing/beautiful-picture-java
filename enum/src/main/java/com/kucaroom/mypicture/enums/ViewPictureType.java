@@ -6,7 +6,7 @@ import lombok.Getter;
 public enum ViewPictureType {
 
     PICTURE(1,"图集"),
-    PICTURE_ITEM(1,"图片"),
+    PICTURE_ITEM(2,"图片"),
     ;
 
     private Integer code;

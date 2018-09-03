@@ -17,4 +17,8 @@ public class CollectPictureLog {
     private Integer userId;
 
     private String createAt;
+
+    @OneToOne(targetEntity = PictureItem.class)
+    @JoinColumn(name = "pictureItemId",referencedColumnName="id",insertable = false,updatable = false,nullable = true)
+    private PictureItem pictureInfo;
 }

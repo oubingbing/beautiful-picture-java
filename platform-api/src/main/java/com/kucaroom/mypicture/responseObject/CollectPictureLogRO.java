@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.responseObject;import lombok.Data;import java.util.Map;@Datapublic class CollectPictureLogRO {    private Integer id;    private Integer userId;    private Integer pictureId;    private Integer status = 0;    private String createAt;    private Map<String,Object> pictureInfo;}
