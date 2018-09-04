@@ -15,6 +15,8 @@ public class PictureFormToPictureDTO {
         PictureDTO pictureDTO = new PictureDTO();
         pictureDTO.setTitle(pictureForm.getTitle());
         pictureDTO.setCoverPicture(pictureForm.getCoverPicture());
+        pictureDTO.setCoverHeight(pictureForm.getCoverHeight());
+        pictureDTO.setCoverWidth(pictureForm.getCoverWidth());
         pictureDTO.setContent(pictureForm.getContent());
 
         List<PictureItem> pictureItems = new ArrayList<>();

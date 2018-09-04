@@ -1,8 +1,10 @@
 package com.kucaroom.mypicture.domain;
 
 import lombok.Data;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.util.Map;
 
 @Data
 @Entity
@@ -18,9 +20,7 @@ public class ViewPictureLog {
 
     private Integer type;
 
-    private String createAt;
+    private Integer number;
 
-    @OneToOne(targetEntity = PictureItem.class)
-    @JoinColumn(name = "pictureId",referencedColumnName="id",insertable = false,updatable = false,nullable = true)
-    private PictureItem pictureInfo;
+    private String createAt;
 }

@@ -30,8 +30,8 @@ public class ViewPictureLogServiceImplTest {
 
     @Test
     public void create() throws Exception {
-        Integer userId = 7611;
-        Integer pictureId = 34;
+        Integer userId = 7612;
+        Integer pictureId = 35;
 
         PictureDTO pictureDTO1 = pictureService.findById(pictureId);
         Assert.assertNotNull(pictureDTO1);

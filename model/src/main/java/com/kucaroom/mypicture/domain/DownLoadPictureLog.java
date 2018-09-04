@@ -18,5 +18,7 @@ public class DownLoadPictureLog {
 
     private Integer type;
 
+    private Integer number = 0;
+
     private String createAt;
 }

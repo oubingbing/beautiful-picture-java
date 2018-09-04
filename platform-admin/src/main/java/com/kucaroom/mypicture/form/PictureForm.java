@@ -14,6 +14,10 @@ public class PictureForm {
     @NotEmpty(message = "图集封面不能为空！")
     private String coverPicture;
 
+    private Integer coverWidth;
+
+    private Integer coverHeight;
+
     @NotEmpty(message = "图集不能为空！")
     private String pictures;
 }

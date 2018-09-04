@@ -18,6 +18,10 @@ public class PictureDTO {
 
     private String coverPicture;
 
+    private Integer coverWidth;
+
+    private Integer coverHeight;
+
     private Integer viewNum = 0;
 
     private Integer downLoadNum = 0;
