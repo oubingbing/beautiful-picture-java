@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.service;import com.kucaroom.mypicture.responseObject.PictureItemRes;import java.util.List;public interface PictureItemsService {    List<PictureItemRes> findByPictureId(Integer pictureId);    Boolean delete(Integer appId,Integer pictureItemId);    Boolean deleteByPictureId(Integer pictureId);}

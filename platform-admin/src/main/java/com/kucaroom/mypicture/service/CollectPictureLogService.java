@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.service;public interface CollectPictureLogService {    Integer deleteByPictureItemId(Integer pictureItemId);}

@@ -39,7 +39,7 @@
 
                 form.on('submit(login)', function(data){
                     var fields = data.field;
-                    $.post("/auth/login",fields,function(res){
+                    $.post("/login",fields,function(res){
                         console.log(res);
                         if(res.code == 0 && res.data == true){
                             layer.msg("登录成功，跳转中...");

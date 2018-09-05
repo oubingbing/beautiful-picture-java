@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.util;import lombok.Data;@Datapublic class PageData<T> {    /** 每页数量 */    private Integer pageSize;    /** 当前页数 */    private Integer PageNumber;    /** 总数量 */    private Integer totalNumber;    /** 数据 */    private T content;}

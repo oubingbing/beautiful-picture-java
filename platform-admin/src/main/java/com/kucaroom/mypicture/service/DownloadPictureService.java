@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.service;public interface DownloadPictureService {    Integer deleteByPictureItemIdAndType(Integer pId,Integer type);}

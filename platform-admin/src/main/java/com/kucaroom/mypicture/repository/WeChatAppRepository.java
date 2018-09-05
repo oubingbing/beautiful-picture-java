@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.repository;import com.kucaroom.mypicture.domain.WeChatApp;import org.springframework.data.jpa.repository.JpaRepository;public interface WeChatAppRepository extends JpaRepository<WeChatApp,Integer> {    WeChatApp findByAdminId(Integer adminId);}

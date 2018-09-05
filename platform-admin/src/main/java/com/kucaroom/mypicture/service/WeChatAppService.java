@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.service;import com.kucaroom.mypicture.DTO.WeChatAppDTO;import com.kucaroom.mypicture.domain.WeChatApp;public interface WeChatAppService {    WeChatAppDTO findByAdminId(Integer adminId);}

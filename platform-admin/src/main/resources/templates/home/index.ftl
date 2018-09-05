@@ -32,7 +32,7 @@
             <li class="layui-nav-item to-index"><a href="/auth/login">登录</a></li>
             <li class="layui-nav-item to-index"><a href="/auth/register">注册</a></li>
         </ul>
-        
+
     </div>
     <div class="page-content">
 
@@ -40,7 +40,7 @@
     <div class="page-content-bg"></div>
 
     <div class="footer">
-        <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved</div>  
+        <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved</div>
     </div>
     <!-- 底部结束 -->
     <script>

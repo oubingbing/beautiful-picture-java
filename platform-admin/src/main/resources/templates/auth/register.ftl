@@ -48,10 +48,10 @@
                     return false;
                 }
 
-                $.post("/auth/register",fields,function(res){
+                $.post("/register",fields,function(res){
                     if(res.code == 0){
                         layer.msg("注册成功！",function () {
-                            window.location.href = "/auth/login";
+                            window.location.href = "/login";
                         })
                     }else{
                         layer.msg(res.message);
