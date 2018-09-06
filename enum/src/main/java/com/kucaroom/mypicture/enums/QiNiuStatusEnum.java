@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.enums;import lombok.Getter;@Getterpublic enum QiNiuStatusEnum {    DEFAULT(1,"默认账号"),    CUSTOM(2,"自定义"),    ;    private Integer code;    private String message;    QiNiuStatusEnum(Integer code, String message){        this.code = code;        this.message = message;    }}

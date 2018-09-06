@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.enums;import lombok.Getter;@Getterpublic enum UserGenderEnum {    BOY(1,"男"),    GIRL(2,"女"),    OTHER(0,"其他"),    ;    private Integer code;    private String message;    UserGenderEnum(Integer code, String message){        this.code = code;        this.message = message;    }}
