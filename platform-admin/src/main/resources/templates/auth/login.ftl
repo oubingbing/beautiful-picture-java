@@ -44,7 +44,7 @@
                         if(res.code == 0 && res.data == true){
                             layer.msg("登录成功，跳转中...");
                             setTimeout(function () {
-                                window.location.href = "/admin";
+                                window.location.href = "/admin/index";
                             },1000)
                         }else{
                             if(res.code == 0){
