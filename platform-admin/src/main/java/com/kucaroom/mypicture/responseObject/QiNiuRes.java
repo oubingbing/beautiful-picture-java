@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.responseObject;public class QiNiuRes {    private Integer id;    private Integer appId;    private String accessKey;    private String secretKey;    private String bucketName;    private String domain;    private String region;}

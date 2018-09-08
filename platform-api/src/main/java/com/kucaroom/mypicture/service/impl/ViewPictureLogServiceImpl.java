@@ -5,15 +5,14 @@ import com.kucaroom.mypicture.DTO.UserDTO;
 import com.kucaroom.mypicture.domain.CollectPictureLog;
 import com.kucaroom.mypicture.domain.PictureItem;
 import com.kucaroom.mypicture.domain.ViewPictureLog;
-import com.kucaroom.mypicture.enums.CollectPictureType;
+import com.kucaroom.mypicture.enums.CollectPictureTypeEnum;
 import com.kucaroom.mypicture.enums.ResponseEnum;
-import com.kucaroom.mypicture.enums.ViewPictureType;
+import com.kucaroom.mypicture.enums.ViewPictureTypeEnum;
 import com.kucaroom.mypicture.exception.ApiException;
 import com.kucaroom.mypicture.mapper.CollectPictureMapper;
 import com.kucaroom.mypicture.mapper.PictureItemMapper;
 import com.kucaroom.mypicture.mapper.ViewPictureLogMapper;
 import com.kucaroom.mypicture.repository.ViewPictureLogRepository;
-import com.kucaroom.mypicture.responseObject.PictureItemRO;
 import com.kucaroom.mypicture.responseObject.ViewPictureLogRO;
 import com.kucaroom.mypicture.service.PictureService;
 import com.kucaroom.mypicture.service.UserService;
@@ -32,9 +31,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Service
@@ -71,7 +68,7 @@ public class ViewPictureLogServiceImpl implements ViewPictureLogService{
             throw new ApiException(ResponseEnum.USER_NOT_EXIST);
         }
 
-        if(ViewPictureType.PICTURE.getCode() == type){
+        if(ViewPictureTypeEnum.PICTURE.getCode() == type){
             PictureDTO pictureDTO = pictureService.findById(pictureId);
             if(pictureDTO == null){
                 throw new ApiException(ResponseEnum.PICTURE_NOT_EXIST);
@@ -168,7 +165,7 @@ public class ViewPictureLogServiceImpl implements ViewPictureLogService{
                 for (CollectPictureLog collectItem:collectPictureLogList){
                     for (ViewPictureLogRO viewPictureLogRO:viewPictureLogROList){
                         if(collectItem.getPictureItemId() == viewPictureLogRO.getPictureId()){
-                            viewPictureLogRO.setCollect(CollectPictureType.COLLECT.getCode());
+                            viewPictureLogRO.setCollect(CollectPictureTypeEnum.COLLECT.getCode());
                         }
                     }
                 }

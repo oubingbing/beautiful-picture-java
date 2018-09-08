@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.enums;import lombok.Getter;@Getterpublic enum CollectPictureTypeEnum {    NOT_COLLECT(0,"未收藏"),    COLLECT(1,"已收藏图片"),    ;    private Integer code;    private String message;    CollectPictureTypeEnum(Integer code, String message){        this.code = code;        this.message = message;    }}

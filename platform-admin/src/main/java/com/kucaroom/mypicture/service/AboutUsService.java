@@ -1,0 +1,1 @@
+package com.kucaroom.mypicture.service;import com.kucaroom.mypicture.DTO.AboutUsDTO;public interface AboutUsService {    AboutUsDTO create(AboutUsDTO aboutUsDTO);    AboutUsDTO findByAppId(Integer appId);    AboutUsDTO updateByAppId(AboutUsDTO aboutUsDTO);}
