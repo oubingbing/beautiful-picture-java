@@ -18,6 +18,7 @@ public class PictureFormToPictureDTO {
         pictureDTO.setCoverHeight(pictureForm.getCoverHeight());
         pictureDTO.setCoverWidth(pictureForm.getCoverWidth());
         pictureDTO.setContent(pictureForm.getContent());
+        pictureDTO.setAvatar(pictureForm.getAvatar());
 
         List<PictureItem> pictureItems = new ArrayList<>();
         pictureItems = gson.fromJson(pictureForm.getPictures(),new TypeToken<List<PictureItem>>(){}.getType());

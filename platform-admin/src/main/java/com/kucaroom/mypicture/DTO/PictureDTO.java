@@ -28,7 +28,13 @@ public class PictureDTO {
 
     private Integer shareNum = 0;
 
+    private String shareImage;
+
+    private String shareWord;
+
     private Integer status;
+
+    private String avatar;
 
     private List<PictureItem> pictureItems;
 }

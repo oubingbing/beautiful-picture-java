@@ -18,6 +18,8 @@ public class PictureForm {
 
     private Integer coverHeight;
 
+    private String avatar;
+
     @NotEmpty(message = "图集不能为空！")
     private String pictures;
 }
