@@ -1,6 +1,7 @@
 package com.kucaroom.mypicture.controller.checkAuth;
 
 import com.kucaroom.mypicture.DTO.PictureDTO;
+import com.kucaroom.mypicture.DTO.QiNiuAccountDTO;
 import com.kucaroom.mypicture.converter.PictureDTOPictureRes;
 import com.kucaroom.mypicture.converter.PictureFormToPictureDTO;
 import com.kucaroom.mypicture.domain.Picture;
@@ -11,6 +12,7 @@ import com.kucaroom.mypicture.responseObject.PictureItemRes;
 import com.kucaroom.mypicture.responseObject.PictureRes;
 import com.kucaroom.mypicture.service.PictureItemsService;
 import com.kucaroom.mypicture.service.PictureService;
+import com.kucaroom.mypicture.service.QiNiuService;
 import com.kucaroom.mypicture.util.PageUtil;
 import com.kucaroom.mypicture.util.ResponseData;
 import com.kucaroom.mypicture.util.ResponseUtil;
@@ -42,10 +44,17 @@ public class PictureController {
     @Autowired
     private PictureItemsService pictureItemsService;
 
+    @Autowired
+    private QiNiuService qiNiuService;
+
     @GetMapping("")
     public ModelAndView pictureList(HttpServletRequest request){
-        Integer appId = (Integer)request.getAttribute("appId");
-        return new ModelAndView("/admin/pictures");
+        Integer appId = (Integer) request.getAttribute("appId");
+        QiNiuAccountDTO qiNiuAccountDTO = qiNiuService.findAccountByAppId(appId);
+        Map<String,Object> map = new HashMap<>();
+        map.put("domain",qiNiuAccountDTO.getDomain());
+        map.put("uploadDomain",qiNiuAccountDTO.getUrl());
+        return new ModelAndView("/admin/pictures",map);
     }
 
     @ResponseBody
@@ -54,6 +63,8 @@ public class PictureController {
                                                       @RequestParam(value = "pageSize",defaultValue = "20")Integer pageSize,
                                                       HttpServletRequest request){
         Integer appId = (Integer)request.getAttribute("appId");
+
+
         Sort sort = new Sort(Sort.Direction.DESC, "createAt");
         PageRequest pageRequest = new PageRequest(pageNumber-1,pageSize,sort);
         Page<PictureDTO> pictureDTOS = pictureService.findByAppId(pageRequest,appId);
@@ -63,8 +74,12 @@ public class PictureController {
     }
 
     @GetMapping("/detail")
-    public ModelAndView detailView(@RequestParam(value = "id")Integer id){
+    public ModelAndView detailView(@RequestParam(value = "id")Integer id,HttpServletRequest request){
+        Integer appId = (Integer)request.getAttribute("appId");
+        QiNiuAccountDTO qiNiuAccountDTO = qiNiuService.findAccountByAppId(appId);
         Map<String,Object> map = new HashMap<>();
+        map.put("domain",qiNiuAccountDTO.getDomain());
+        map.put("uploadDomain",qiNiuAccountDTO.getUrl());
         map.put("id",id);
         return new ModelAndView("/admin/pictureDetail",map);
     }
@@ -115,8 +130,15 @@ public class PictureController {
      * @return
      */
     @GetMapping("/upload")
-    public ModelAndView uploadPicture(){
-        return new ModelAndView("/admin/upload");
+    public ModelAndView uploadPicture(HttpServletRequest request){
+        Integer appId = (Integer)request.getAttribute("appId");
+        QiNiuAccountDTO qiNiuAccountDTO = qiNiuService.findAccountByAppId(appId);
+        Map<String,Object> map = new HashMap<>();
+        map.put("domain",qiNiuAccountDTO.getDomain());
+        map.put("uploadDomain",qiNiuAccountDTO.getUrl());
+        map.put("zone",qiNiuAccountDTO.getRegion());
+
+        return new ModelAndView("/admin/upload",map);
     }
 
     /**
@@ -130,16 +152,14 @@ public class PictureController {
     @Transactional
     @ResponseBody
     @PostMapping("/upload")
-    public ResponseData upload(@Valid PictureForm pictureForm, BindingResult bindingResult){
-
+    public ResponseData upload(@Valid PictureForm pictureForm, BindingResult bindingResult,HttpServletRequest request){
+        Integer appId = (Integer)request.getAttribute("appId");
         if(bindingResult.hasErrors()){
             throw new WebApiException(ResponseEnum.PICTURE_UPLOAD_ERROR.getCode(),bindingResult.getFieldError().getDefaultMessage());
         }
 
-
-
         PictureDTO pictureDTO = PictureFormToPictureDTO.convert(pictureForm);
-        pictureDTO.setAppId(74);
+        pictureDTO.setAppId(appId);
         PictureDTO result = pictureService.create(pictureDTO);
         if(result == null){
             throw new WebApiException(ResponseEnum.PICTURE_CREATE_ERROR);

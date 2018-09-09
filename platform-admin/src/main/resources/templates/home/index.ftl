@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
+<html lang="">
 <head>
-    <meta charset="UTF-8">
-    <title>唯美图吧</title>
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="keywords" content="唯美图吧，图片小程序，一键部署小程序，小程序，图片，小程序">
+    <meta name="description" content="简单配置就能部署上线的图片小程序">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/static/css/font.css">
-    <link rel="stylesheet" href="/static/css/xadmin.css">
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/static/lib/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <title>唯美图吧</title>
+    <link rel="stylesheet" href="/static/lib/layui/font/font.css">
+    <link href="/static/css/app.css" rel="stylesheet">
 
     <style>
         .footer{
@@ -33,18 +29,27 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/home">首页</a></li>
-                    <li><a href="/admin">控制台</a></li>
+                    <li><a href="/">首页</a></li>
+                    <#if (username != "")>
+                        <li><a href="/admin/index">控制台</a></li>
+                        <li><a href="javascript:;">${username}</a></li>
+                        <li><a href="/logout">退出</a></li>
+                    <#else>
+                        <li><a href="/login">登录</a></li>
+                        <li><a href="/register">注册</a></li>
+                    </#if>
                 </ul>
             </div>
         </div>
     </nav>
+
     <footer class="footer navbar-fixed-bottom">
         <div class="container footer">
-            <a href="http://www.miitbeian.gov.cn/">@2016-2018 湛江市赤坎区古卡饮品店 | 粤ICP备16004706号-1</a>
+            <a href="http://www.miitbeian.gov.cn/">@2018 唯美图吧 | 粤ICP备16004706号-1</a>
         </div>
     </footer>
 </div>
 
+<script src="/static/js/app.js"></script>
 </body>
 </html>
