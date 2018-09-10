@@ -16,5 +16,8 @@
         padding: 5px;
         border-radius: 1px;
     }
+    [v-cloak] {
+        display: none;
+    }
 </style>
 <body>

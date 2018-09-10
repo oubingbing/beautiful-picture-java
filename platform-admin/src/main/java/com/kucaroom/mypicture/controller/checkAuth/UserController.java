@@ -60,10 +60,11 @@ public class UserController {
     @ResponseBody
     @GetMapping("/list")
     public ResponseData<List<UserRes>> users(@RequestParam(value = "pageNumber",defaultValue = "0")Integer pageNumber,
-                                             @RequestParam(value = "pageSize",defaultValue = "20")Integer pageSize){
+                                             @RequestParam(value = "pageSize",defaultValue = "20")Integer pageSize,
+                                             HttpServletRequest request){
+        Integer appId = (Integer)request.getAttribute("appId");
         Sort sort = new Sort(Sort.Direction.DESC, "createAt");
         PageRequest pageable = new PageRequest(pageNumber-1,pageSize,sort);
-        Integer appId = 74;
         Page<UserDTO> userDTOS = userService.users(appId,pageable);
         List<UserRes> userRes = UserDTOToUserRes.convert(userDTOS.getContent());
 

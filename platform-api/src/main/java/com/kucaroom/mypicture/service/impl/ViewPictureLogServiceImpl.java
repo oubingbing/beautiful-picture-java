@@ -12,8 +12,10 @@ import com.kucaroom.mypicture.exception.ApiException;
 import com.kucaroom.mypicture.mapper.CollectPictureMapper;
 import com.kucaroom.mypicture.mapper.PictureItemMapper;
 import com.kucaroom.mypicture.mapper.ViewPictureLogMapper;
+import com.kucaroom.mypicture.repository.PictureItemRepository;
 import com.kucaroom.mypicture.repository.ViewPictureLogRepository;
 import com.kucaroom.mypicture.responseObject.ViewPictureLogRO;
+import com.kucaroom.mypicture.service.PictureItemService;
 import com.kucaroom.mypicture.service.PictureService;
 import com.kucaroom.mypicture.service.UserService;
 import com.kucaroom.mypicture.service.ViewPictureLogService;
@@ -54,6 +56,12 @@ public class ViewPictureLogServiceImpl implements ViewPictureLogService{
     @Autowired
     private CollectPictureMapper collectPictureMapper;
 
+    @Autowired
+    private PictureItemRepository pictureItemRepository;
+
+    @Autowired
+    private PictureItemService pictureItemService;
+
     /**
      * 新建查看记录
      *
@@ -74,6 +82,12 @@ public class ViewPictureLogServiceImpl implements ViewPictureLogService{
                 throw new ApiException(ResponseEnum.PICTURE_NOT_EXIST);
             }
             pictureService.incrementViewNumber(pictureId);
+        }else{
+            PictureItem pictureItem = pictureItemService.findById(pictureId);
+            if(pictureItem != null){
+                pictureItem.setViewNum(pictureItem.getViewNum() + 1);
+                pictureItemRepository.save(pictureItem);
+            }
         }
 
         ViewPictureLog userViewLog = viewPictureLogMapper.findByUserViewLog(userId,pictureId,type);

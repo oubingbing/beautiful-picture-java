@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>唯美图吧</title>
-    <link rel="stylesheet" href="/static/lib/layui/font/font.css">
+    <link rel="shortcut icon" href="/static/images/main-logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/font.css">
     <link href="/static/css/app.css" rel="stylesheet">
 
     <style>
@@ -16,6 +17,20 @@
             background: #EEEEEE;
             text-align: center;
             padding: 5px;
+        }
+        .content-container{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: 100px;
+            background: red;
+            justify-content: center;
+        }
+
+        .content-container .content{
+            width: 60%;
+            height: 100px;
+            background: #2a88bd;
         }
     </style>
 </head>
@@ -42,6 +57,12 @@
             </div>
         </div>
     </nav>
+
+    <!--<div class="content-container">
+        <div class="content">
+
+        </div>
+    </div>-->
 
     <footer class="footer navbar-fixed-bottom">
         <div class="container footer">
