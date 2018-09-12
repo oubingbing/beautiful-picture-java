@@ -109,6 +109,7 @@ public class PictureController {
         return ResponseUtil.success(result);
     }
 
+    @Transactional
     @ResponseBody
     @PostMapping("/status/{id}")
     public ResponseData changePictureStatus(@PathVariable(value = "id")Integer id,
